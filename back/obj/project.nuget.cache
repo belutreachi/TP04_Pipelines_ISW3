@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qWco0U7cjN4=",
+  "success": true,
+  "projectFilePath": "/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/back/back.csproj",
+  "expectedPackageFiles": [
+    "/Users/belutreachi/.nuget/packages/microsoft.aspnetcore.openapi/9.0.9/microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "/Users/belutreachi/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,66 @@
+trigger:
+  branches:
+    include:
+    - main
+
+pool:
+  name: SelfHosted
+
+stages:
+- stage: CI
+  displayName: "Continuous Integration"
+  jobs:
+
+  # ---------- FRONT ----------
+  - job: Build_Front
+    displayName: "Build Frontend (React)"
+    steps:
+    - task: NodeTool@0
+      displayName: "Use Node.js 22.x"
+      inputs:
+        versionSpec: '22.x'   # si preferís 20.19.0+, cambialo por '20.x'
+
+    - script: |
+        cd front
+        npm ci
+        npm run build
+      displayName: "npm ci & build"
+
+    - task: PublishPipelineArtifact@1
+      displayName: "Publicar artefacto: front_dist"
+      inputs:
+        targetPath: 'front/dist'
+        artifact: 'front_dist'
+
+  # ---------- BACK ----------
+  - job: Build_Back
+    displayName: "Build & Test Backend (.NET 9)"
+    steps:
+    - task: UseDotNet@2
+      displayName: "Use .NET SDK 9.x"
+      inputs:
+        packageType: 'sdk'
+        version: '9.0.x'
+
+    - script: |
+        cd back
+        dotnet restore
+        dotnet build --configuration Release --no-restore
+      displayName: "dotnet restore & build"
+
+    - script: |
+        cd back.tests
+        dotnet test --configuration Release --logger trx
+      displayName: "dotnet test"
+      condition: and(succeeded(), exists('back.tests'))
+
+    - script: |
+        cd back
+        dotnet publish --configuration Release --output $(Build.ArtifactStagingDirectory)/back_publish
+      displayName: "dotnet publish"
+
+    - task: PublishPipelineArtifact@1
+      displayName: "Publicar artefacto: back_publish"
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/back_publish'
+        artifact: 'back_publish'

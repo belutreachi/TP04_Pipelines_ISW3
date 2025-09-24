@@ -1,0 +1,9 @@
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/back
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/appsettings.Development.json
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/appsettings.json
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/back.dll
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/back.deps.json
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/back.runtimeconfig.json
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/back.pdb
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/Microsoft.AspNetCore.OpenApi.dll
+/Users/belutreachi/Desktop/FACULTAD/ing-soft-3/TP04_Pipelines_ISW3/publish/Microsoft.OpenApi.dll
