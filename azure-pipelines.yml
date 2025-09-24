@@ -48,11 +48,11 @@ stages:
         dotnet build --configuration Release --no-restore
       displayName: "dotnet restore & build"
 
-    - script: |
-        cd back.tests
-        dotnet test --configuration Release --logger trx
-      displayName: "dotnet test"
-      condition: and(succeeded(), exists('back.tests'))
+    - ${{ if exists('back.tests') }}:
+        - script: |
+            cd back.tests
+            dotnet test --configuration Release --logger trx
+          displayName: "dotnet test"
 
     - script: |
         cd back
